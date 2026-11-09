@@ -2,7 +2,7 @@
 *Par Amaury, Samy, Pablo*
 
 ## A propos 
-Le but de est de faire un programme capable de chiffrer et dechiffrer un fichier texte.
+Le but de ce prozit est de faire un programme capable de chiffrer et dechiffrer un fichier texte.
 
 ### Le Chiffrement 
 Notre programme dispose de 3 methodes de chiffrement 
