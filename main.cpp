@@ -4,7 +4,7 @@
 #include <string>
 
 int main(){
-    int mode, met;
+    int mode, met, cle;
     std::string fname;
 
     std::cout << "Quel est le nom du fichier ?" << std::endl;
@@ -45,21 +45,36 @@ int main(){
         std::cout << "Quel methode de dechiffrement voulez vous utilser ? \n 1. César \n 2. XOR \n 3. César + XOR" << std::endl;
         std::cin >> met;
 
-        switch (met)
-        {
-        case 1:
-            // Methode CESAR
-            break;
-        
-        case 2:
-            // Methode XOR
-            break;
+        std::fstream fichier(fname, std::ios::in);
+        if (fichier) {
 
-        case 3: 
-            // Methode CESAR + XOR
-            break;
-        }
-        break;
+            std::string ligne;
+            while (std::getline(fichier, ligne)){
+                switch (met)
+                {
+                case 1:
+                    // Methode CESAR
+                    std::cout << "Quel cle voulez vous utiliser (int)" << std::endl;
+                    std::cin >> cle;
+                    break;
+                
+                case 2:
+                    // Methode XOR
+                    std::cout << "Quel cle voulez vous utiliser (int)" << std::endl;
+                    std::cin >> cle;
+                    break;
+
+                case 3: 
+                    // Methode CESAR + XOR
+                    std::cout << "Quel cle CESAR voulez vous utiliser (int)" << std::endl;
+                    std::cin >> cle;
+                    break;
+                }
+                fichier.close();
+                break;
+        }}else {
+            std::cerr << "Erreur a l'ouverture du fichier" << std::endl;
+            }
     }
 
     return 0;
