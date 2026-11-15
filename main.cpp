@@ -50,27 +50,13 @@ public:
 class Cesar {
 public:
     int decalage;
-    char alphabet_clair[27];
-    char alphabet_crypte[27];
-
-    void initialiserAlphabets() {
-        for (int i = 0; i < 26; i++) {
-            alphabet_clair[i] = static_cast<char>('A' + i);
-            alphabet_crypte[i] = static_cast<char>('A' + (i + decalage) % 26);
-        }
-
-        alphabet_clair[26] = '\0';
-        alphabet_crypte[26] = '\0';
-    }
 
     Cesar(int nouveau_decalage) {
         decalage = ((nouveau_decalage % 26) + 26) % 26;
-        initialiserAlphabets();
     }
 
     Cesar() {
         decalage = 1;
-        initialiserAlphabets();
     }
 
     std::string Crypter(std::string message_original) {
@@ -124,12 +110,14 @@ public:
 
 
 int main() {
+
+    
     int mode, met, cle, taille;
     std::string fname;
     std::string message;
-    std::string continue;
     Texte fichier;
 
+    
     std::cout << "Quel est le nom du fichier ?" << std::endl;
     std::cin >> fname;
 
